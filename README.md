@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# midguard_characters
-=======
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -25,4 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
->>>>>>> Add existing project files to GitAdd existing project files to Git
