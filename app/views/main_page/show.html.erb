@@ -18,12 +18,13 @@
 
 <main>
   <div class="container py-4">
-
     <div class="p-5 mb-4 bg-light rounded-3">
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">Midguard - kreator postaci</h1>
         <p class="col-md-8 fs-4">Witaj w kreatorze postaci do gry fabularnej Midguard. </p>
-        <button class="btn btn-purple btn-lg" type="button">Stwórz swoją postać</button>
+        <button class="btn btn-purple btn-lg" type="button">
+          <%= link_to 'Stwórz swoją postać', new_character_path, class: "nav-link active" %>
+        </button>
       </div>
     </div>
 
