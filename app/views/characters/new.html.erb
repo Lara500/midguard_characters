@@ -1,0 +1,56 @@
+<div class="container py-4">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="py-5 text-center">
+      <h2>Podstawowe dane postaci</h2>
+    </div>
+    <%= form_with(model: @character) do |form| %>
+
+    <div class="mb-3">
+
+      <h5><%= form.label "Imię", class: 'form-label' %></h5>
+
+      <div class="row g-3">
+        <div class="col-sm-6">
+      <%= form.text_field :name, class: "form-control" %>
+        </div>
+        <div class="col-sm-1">
+          <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Postaraj się, aby imię pasowało do realiów Midgardu">
+            ?
+          </button>
+        </div>
+        </div>
+      </div>
+      <br/>
+      <h5><%= form.label "Imię rodzica", class: 'form-label' %></h5>
+
+      <div class="row g-3">
+        <div class="col-sm-6">
+        <%= form.text_field :parent_name, class: "form-control" %>
+        </div>
+        <div class="col-sm-1">
+          <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Nazwisko jest tworzone od imienia rodzica">
+            ?
+          </button>
+        </div>
+      </div>
+
+      <br/>
+      <h5><%= form.label "Płeć", class: 'form-label' %></h5>
+        <%= form.radio_button :gender, 'Kobieta' %> Kobieta<br />
+        <%= form.radio_button :gender, 'Mężczyzna' %> Mężczyzna<br />
+      <br/>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+        <%= form.submit "Dalej", class:'btn btn-purple'%>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">&copy; Sonia Leszkiewicz 2022</p>
+</footer>
+
