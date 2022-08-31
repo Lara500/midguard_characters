@@ -7,10 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-*
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -28,8 +24,19 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
+/public/uploads
 
 /public/assets
 
+# Ignore yarn files
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+config/initializers/secret_token.rb
+config/master.key
+
+config/database.yml
+
+.idea
