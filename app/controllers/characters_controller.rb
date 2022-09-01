@@ -1,5 +1,4 @@
 class CharactersController < ApplicationController
-  # before_save :create_surname
 
   def new
     @character = Character.new
@@ -27,6 +26,6 @@ class CharactersController < ApplicationController
     elsif params["character"]["gender"] == "Mężczyzna"
       ending = "son"
     end
-    @character.surname = params["character"]["parent_name"] + ending
+    @character.surname = "#{params["character"]["parent_name"]}#{ending}"
   end
 end
