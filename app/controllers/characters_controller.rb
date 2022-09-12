@@ -5,9 +5,8 @@ class CharactersController < ApplicationController
 
   def create
     result = CharacterCreator.call(character_params, params["character"]["parent_name"])
-
     if result
-      redirect_to root_path, notice: 'Character was successfully created.'
+      redirect_to(character_wizard_path(char_id: result.id, step: "kind_and_benefits"))
     else
       render :new, status: :unprocessable_entity
     end

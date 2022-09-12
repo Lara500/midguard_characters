@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root 'main_page#show'
 
   resources :characters, only: %i[new create]
+
+  resource 'character_wizard', only: [:show, :create]
 end

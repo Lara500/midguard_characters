@@ -8,7 +8,8 @@ class CharacterCreator < ApplicationService
   def call
     @character = Character.new(@character_params)
     create_surname
-    return @character.update(@character_params)
+    @character.update(@character_params)
+    return @charagcter
   end
 
   private
