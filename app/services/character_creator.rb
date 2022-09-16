@@ -9,7 +9,7 @@ class CharacterCreator < ApplicationService
     @character = Character.new(@character_params)
     create_surname
     @character.update(@character_params)
-    return @charagcter
+    return @character
   end
 
   private

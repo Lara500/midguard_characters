@@ -1,39 +1,45 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
 <div class="container py-4">
   <div class="p-5 mb-4 bg-light rounded-3">
       <div class="py-5 text-center">
         <h2>Klasa i zalety postaci</h2>
       </div>
-      <%= form_with(model: @character) do |form| %>
+      <%= form_with(model: @character_wizard, remote: true) do |form| %>
+
+      <div id="kind_and_benefits_div">
         <h5><%= form.label "Klasa postaci:", class: 'form-label' %></h5>
         <div class="row g-3">
           <div class="col-sm-6">
-            <%= form.select(:kind, options_for_select(["Berserker", "Jaeger", "Einher", "Jarl",  "Huskarl", "Skald", "Techmistrz", "Wieszcz", "Thane", "Wolwa", "Ulfhednar", "Walkiria"]),{}, {:class => "form-select"}) %>
+            <%= form.select(:kind, options_from_collection_for_select(Kind.all, :name, :name),{ prompt: "Wybierz klasę"}, {:class => "form-select", :onchange => "kind_and_benefits(this.value);"}) %>
           </div>
+          <script type="text/javascript">
+              function kind_and_benefits(kind_id) {
+                  console.log("dziala")
+                  jQuery.ajax({
+                      url: "/kind_and_benefits",
+                      type: "GET",
+                      data: {"kind_id": kind_id},
+                      dataType: "html",
+                      success: function (data) {
+                          jQuery("#benefitsDiv").html(data);
+                      }
+                  });
 
-          <h5><%= form.label "Zalety postaci postaci:", class: 'form-label' %></h5>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Default checkbox
-            </label>
+              }
+          </script>
+          <br/>
+          <div id="benefitsDiv">
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-            <label class="form-check-label" for="flexCheckChecked">
-              Checked checkbox
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-            <label class="form-check-label" for="flexCheckChecked">
-              Checked checkbox
-            </label>
-          </div>
-
-      <%end %>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
-          <button class="btn btn-purple">Dalej</button>
         </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+          <%= form.submit "Dalej", class:'btn btn-purple'%>
+        </div>
+
+    <%end %>
+
       </div>
 
     </div>

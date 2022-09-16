@@ -6,12 +6,12 @@ class CharacterWizardsController < ApplicationController
   end
 
   def create
-    # @wizard = Wizard.new(@character, params[:step], params)
-    # render_or_redirect
+
   end
 
   def kind_and_benefits
-
+    @benefits = Benefit.where(kind_id: params["kind_id"])
+    render partial: "benefits", :object => @benefits
   end
 
 end
