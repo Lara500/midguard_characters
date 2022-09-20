@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'main_page#show'
+
+  resources :characters, only: %i[new create]
 end
