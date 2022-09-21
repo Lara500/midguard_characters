@@ -1,6 +1,6 @@
 class CharacterCreator < ApplicationService
-  MALE_SURNAME_ENDING = "son"
-  FEMALE_SURNAME_ENDING = "dottir"
+  MALE_SURNAME_ENDING = "son".freeze
+  FEMALE_SURNAME_ENDING = "dottir".freeze
   def initialize(character_params, parent_name)
     @character_params = character_params
     @parent_name = parent_name
