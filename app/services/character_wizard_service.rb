@@ -1,5 +1,4 @@
 class CharacterWizardService < ApplicationService
-
   def initialize(character_params, parent_name)
     @character_params = character_params
     @parent_name = parent_name

@@ -10,31 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_111327) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_22_115030) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "benefits", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "kind_id"
+    t.string "kind_name", null: false
   end
 
   create_table "characters", force: :cascade do |t|
-    t.string "name"
-    t.string "surname"
-    t.string "gender"
+    t.string "name", null: false
+    t.string "surname", null: false
+    t.string "gender", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "language"
+    t.string "language", null: false
   end
 
   create_table "kinds", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "gender"
+    t.string "gender", null: false
   end
 
 end

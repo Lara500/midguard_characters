@@ -12,15 +12,15 @@
         <h5><%= form.label "Klasa postaci:", class: 'form-label' %></h5>
         <div class="row g-3">
           <div class="col-sm-6">
-            <%= form.select(:kind, options_from_collection_for_select(Kind.all, :name, :name),{ prompt: "Wybierz klasę"}, {:class => "form-select", :onchange => "kind_and_benefits(this.value);"}) %>
+            <%= form.select(:kind, options_from_collection_for_select(Kind.all, :name, :name),{ prompt: "Wybierz klasę"}, { :class => "form-select", :onchange => "kind_and_benefits(this.value);" }) %>
           </div>
           <script type="text/javascript">
-              function kind_and_benefits(kind_id) {
+              function kind_and_benefits(kind_name) {
                   console.log("dziala")
                   jQuery.ajax({
                       url: "/kind_and_benefits",
                       type: "GET",
-                      data: {"kind_id": kind_id},
+                      data: {"kind_name": kind_name},
                       dataType: "html",
                       success: function (data) {
                           jQuery("#benefitsDiv").html(data);
