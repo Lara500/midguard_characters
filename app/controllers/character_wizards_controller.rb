@@ -1,7 +1,10 @@
 class CharacterWizardsController < ApplicationController
 
   def show
-    render "kind_and_benefits"
+
+    @kind_gender = Kind.where(gender: Character.find(params["char_id"]).gender)
+    @kind_gender += Kind.where(gender: "Dowolna")
+    render "kind_and_benefits", local: @kind_gender
   end
 
   def create
