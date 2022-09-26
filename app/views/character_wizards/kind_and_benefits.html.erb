@@ -12,22 +12,29 @@
         <h5><%= form.label "Klasa postaci:", class: 'form-label' %></h5>
         <div class="row g-3">
           <div class="col-sm-6">
-            <%= form.select(:kind, options_from_collection_for_select(@kind_gender, :name, :name),{ prompt: "Wybierz klasę"}, { :class => "form-select", :onchange => "kind_and_benefits(this.value);" }) %>
+            <%= form.select(:kind, options_from_collection_for_select(@kind_gender, :name, :name),{ prompt: "Wybierz klasę"}, { class: "find_benefits", remote: true }) %>
           </div>
           <script type="text/javascript">
-              function kind_and_benefits(kind_name) {
-                  console.log("dziala")
-                  jQuery.ajax({
-                      url: "/kind_and_benefits",
-                      type: "GET",
-                      data: {"kind_name": kind_name},
-                      dataType: "html",
-                      success: function (data) {
-                          jQuery("#benefitsDiv").html(data);
-                      }
+              (function() {
+                  $(document).ready(function() {
+                      return KindAndBenefits.init();
                   });
 
-              }
+              }).call(this);
+              // $(document).ready(function() {
+              //     $('.find_benefits').on('change', function() {
+              //         jQuery.ajax({
+              //         url: "/kind_and_benefits",
+              //         type: "GET",
+              //         data: {"kind_name": this.value},
+              //         dataType: "html",
+              //         success: function (data) {
+              //             jQuery("#benefitsDiv").html(data);
+              //         }
+              //     });
+              //     });
+              // })
+
           </script>
           <br/>
           <div id="benefitsDiv">
