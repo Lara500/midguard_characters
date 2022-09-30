@@ -1,0 +1,71 @@
+<div class="container py-4">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="py-5 text-center">
+      <h2>Klasa i zalety postaci</h2>
+    </div>
+    <%= form_with(model: @character_wizard, url: character_wizard_path) do |form| %>
+      <h5><%= form.label "Zalety postaci postaci:", class: 'form-label' %></h5>
+      <div class="form-check">
+        <%= form.check_box :benefit_first, class: "form-check-input", onchange: "handleChange();", id: "checkbox-one" %>
+        <label class="form-check-label" for="flexCheckDefault">
+          <%= @benefits[0].name %>
+          <%= form.hidden_field :name_one, value: @benefits[0].name %>
+        </label>
+      </div>
+      <div class="form-check">
+        <%= form.check_box :benefit_second, class: "form-check-input", onchange: "handleChange();", id: "checkbox-two"%>
+        <label class="form-check-label" for="flexCheckDefault">
+          <%= @benefits[1].name %>
+          <%= form.hidden_field :name_two, value: @benefits[1].name %>
+        </label>
+      </div>
+      <div class="form-check">
+        <%= form.check_box :benefit_third, class: "form-check-input", onchange: "handleChange();", id: "checkbox-three"%>
+        <label class="form-check-label" for="flexCheckDefault">
+          <%= @benefits[2].name %>
+          <%= form.hidden_field :name_three, value: @benefits[2].name %>
+        </label>
+      </div>
+      <%= form.hidden_field :char_id, value: params["char_id"] %>
+      <%= form.hidden_field :step, value: params["step"] %>
+
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+        <%= form.submit "Dalej", class:'btn btn-purple'%>
+      </div>
+
+    <%end %>
+
+    <script>
+        function handleChange() {
+
+            let box_first = document.getElementById("checkbox-one");
+            let box_second = document.getElementById("checkbox-two");
+            let box_third = document.getElementById("checkbox-three");
+
+            if(box_first.checked == true && box_second.checked == true) {
+                document.getElementById("checkbox-three").setAttribute("disabled", "disabled");
+            }
+            else if(box_first.checked == true && box_third.checked == true){
+                document.getElementById("checkbox-two").setAttribute("disabled", "disabled");
+            }
+            else if(box_second.checked == true && box_third.checked == true){
+                document.getElementById("checkbox-one").setAttribute("disabled", "disabled");
+            }
+            else
+            {
+                document.getElementById("checkbox-one").removeAttribute("disabled");
+                document.getElementById("checkbox-two").removeAttribute("disabled");
+                document.getElementById("checkbox-three").removeAttribute("disabled");
+            }
+        }
+    </script>
+
+    </div>
+
+  </div>
+</div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">&copy; Sonia Leszkiewicz 2022</p>
+</footer>

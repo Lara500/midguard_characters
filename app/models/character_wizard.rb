@@ -1,3 +1,2 @@
 class CharacterWizard < ApplicationRecord
-
 end
