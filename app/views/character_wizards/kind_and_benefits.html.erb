@@ -4,12 +4,11 @@
 <div class="container py-4">
   <div class="p-5 mb-4 bg-light rounded-3">
     <div class="py-5 text-center">
-      <h2>Klasa i zalety postaci</h2>
+      <h2>Klasa postaci</h2>
     </div>
     <%= form_with(model: @character_wizard, remote: true) do |form| %>
 
       <div id="kind_and_benefits_div">
-        <h5><%= form.label "Klasa postaci:", class: 'form-label' %></h5>
         <div class="row g-3">
           <div class="col-sm-6">
             <%= form.select(:kind_char, options_from_collection_for_select(@kind_gender, :name, :name),{ prompt: "Wybierz klasę"}, { :class => "form-select", remote: true }) %>
