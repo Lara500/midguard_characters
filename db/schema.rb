@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_03_092337) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_03_123839) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,10 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_092337) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "gender", null: false
-    t.bigint "skills_id"
-    t.bigint "main_parameters_id"
-    t.index ["main_parameters_id"], name: "index_kinds_on_main_parameters_id"
-    t.index ["skills_id"], name: "index_kinds_on_skills_id"
   end
 
   create_table "main_parameters", force: :cascade do |t|
@@ -60,6 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_092337) do
     t.integer "entropy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "kinds_id"
+    t.index ["kinds_id"], name: "index_main_parameters_on_kinds_id"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -83,9 +81,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_092337) do
     t.integer "willpower"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "kinds_id"
+    t.index ["kinds_id"], name: "index_skills_on_kinds_id"
   end
 
   add_foreign_key "character_wizards", "characters"
-  add_foreign_key "kinds", "main_parameters", column: "main_parameters_id"
-  add_foreign_key "kinds", "skills", column: "skills_id"
+  add_foreign_key "main_parameters", "kinds", column: "kinds_id"
+  add_foreign_key "skills", "kinds", column: "kinds_id"
 end
