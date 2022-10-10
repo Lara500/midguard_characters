@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_03_123839) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_10_090229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,9 +61,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_123839) do
   end
 
   create_table "skills", force: :cascade do |t|
-    t.integer "white_weapon"
-    t.integer "grapple"
-    t.integer "resilience"
+    t.integer "side_arm"
+    t.integer "hand_to_hand_combat"
+    t.integer "endurance"
     t.integer "short_weapon"
     t.integer "vehicle_service"
     t.integer "reflex"
@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_03_123839) do
     t.integer "pilotage"
     t.integer "alert_senses"
     t.integer "connections"
-    t.integer "technique"
+    t.integer "engineering"
     t.integer "knowledge"
     t.integer "hacking"
     t.integer "infiltration"
