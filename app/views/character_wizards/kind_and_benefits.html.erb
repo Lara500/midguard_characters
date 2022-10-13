@@ -1,0 +1,34 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<div class="container py-4">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="py-5 text-center">
+      <h2>Klasa postaci</h2>
+    </div>
+    <%= form_with(model: @character_wizard, remote: true) do |form| %>
+
+      <div id="kind_and_benefits_div">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <%= form.select(:kind_char, options_from_collection_for_select(@kind_gender, :name, :name),{ prompt: "Wybierz klasę"}, { :class => "form-select", remote: true }) %>
+          </div>
+          <%= form.hidden_field :char_id, value: params["char_id"] %>
+          <%= form.hidden_field :step, value: params["step"] %>
+
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+          <%= form.submit "Dalej", class:'btn btn-purple'%>
+        </div>
+
+    <%end %>
+
+    </div>
+
+  </div>
+</div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">&copy; Sonia Leszkiewicz 2022</p>
+</footer>

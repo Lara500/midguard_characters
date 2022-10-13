@@ -1,0 +1,2 @@
+class CharacterWizard < ApplicationRecord
+end

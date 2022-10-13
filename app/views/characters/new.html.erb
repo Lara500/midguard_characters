@@ -39,6 +39,19 @@
         <%= form.radio_button :gender, 'Kobieta' %> Kobieta<br />
         <%= form.radio_button :gender, 'Mężczyzna' %> Mężczyzna<br />
       <br/>
+
+      <h5><%= form.label "Język mistyczny", class: 'form-label' %></h5>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <%= form.select(:language, options_for_select(["Aelfheimski", "Asgardzki", "Jotunheimski", "Niflheimski",  "Svartalfheims", "Vanaheimsk"]),{}, { :class => "form-select" }) %>
+        </div>
+        <div class="col-sm-1">
+        <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Wybierz język mistyczny, którym się posługujesz">
+          ?
+        </button>
+        </div>
+      </div>
+
       <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
         <%= form.submit "Dalej", class:'btn btn-purple'%>
       </div>

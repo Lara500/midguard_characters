@@ -6,3 +6,5 @@ import * as bootstrap from "bootstrap"
 //= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
+//= require_directory ./pages
+

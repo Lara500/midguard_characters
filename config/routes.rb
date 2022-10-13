@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   root 'main_page#show'
 
   resources :characters, only: %i[new create]
+
+  resource 'character_wizard', only: [:show, :create]
+  get "/kind_and_benefits" => "character_wizards#kind_and_benefits"
 end
