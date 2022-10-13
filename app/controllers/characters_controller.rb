@@ -1,14 +1,13 @@
 class CharactersController < ApplicationController
-
   def new
     @character = Character.new
   end
 
   def create
-    @character = Character.new(character_params)
-    create_surname
-    if @character.save
-      redirect_to root_path, notice: 'Round was successfully created.'
+    result = CharacterCreator.call(character_params, params["character"]["parent_name"])
+
+    if result
+      redirect_to root_path, notice: 'Character was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -18,14 +17,5 @@ class CharactersController < ApplicationController
 
   def character_params
     params.require(:character).permit(:name, :surname, :gender)
-  end
-
-  def create_surname
-    if params["character"]["gender"] == "Kobieta"
-      ending = "dottir"
-    elsif params["character"]["gender"] == "Mężczyzna"
-      ending = "son"
-    end
-    @character.surname = "#{params["character"]["parent_name"]}#{ending}"
   end
 end
