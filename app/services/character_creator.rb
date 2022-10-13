@@ -1,26 +1,28 @@
 class CharacterCreator < ApplicationService
-
+  MALE_SURNAME_ENDING = "son".freeze
+  FEMALE_SURNAME_ENDING = "dottir".freeze
   def initialize(character_params, parent_name)
     @character_params = character_params
     @parent_name = parent_name
+    @character = Character.new(character_params)
   end
 
   def call
-    @character = Character.new(@character_params)
-    create_surname
-    @character.update(@character_params)
-    return @character
+    generate_surname
+    character.save
   end
 
   private
 
-  def create_surname
-    if @character_params["gender"] == "Kobieta"
-      ending = "dottir"
-    elsif @character_params["gender"] == "Mężczyzna"
-      ending = "son"
+  attr_accessor :character, :character_params, :parent_name
+
+  def generate_surname
+    if character_params["gender"] == "Kobieta"
+      ending = FEMALE_SURNAME_ENDING
+    elsif character_params["gender"] == "Mężczyzna"
+      ending = MALE_SURNAME_ENDING
     end
 
-    @character.surname = "#{@parent_name}#{ending}"
+    character.surname = "#{parent_name}#{ending}"
   end
 end
