@@ -12,7 +12,6 @@ class CharacterWizardService < ApplicationService
   private
 
   def kind_and_benefits
-    kind = @wizard_params["kind_char"]
     @character_wizard = CharacterWizard.new(kind_char: @wizard_params["kind_char"], character_id: @char_id)
     @character_wizard.save
     @character_wizard
@@ -20,7 +19,6 @@ class CharacterWizardService < ApplicationService
 
   def benefits
     @character_wizard = CharacterWizard.find_by_character_id(@char_id)
-
     if @wizard_params["benefit_first"] == "1" && @wizard_params["benefit_second"] == "1"
       @character_wizard.update(first_benefit: @wizard_params["name_one"], second_benefit: @wizard_params["name_two"])
     elsif @wizard_params["benefit_second"] == "1" && @wizard_params["benefit_third"] == "1"
