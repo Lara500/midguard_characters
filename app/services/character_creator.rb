@@ -10,6 +10,7 @@ class CharacterCreator < ApplicationService
   def call
     generate_surname
     character.save
+    character
   end
 
   private
