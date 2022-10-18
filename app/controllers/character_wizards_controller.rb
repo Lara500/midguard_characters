@@ -6,7 +6,6 @@ class CharacterWizardsController < ApplicationController
       @kind_gender += Kind.where(gender: "Dowolna")
       render "kind_and_benefits", local: @kind_gender
     elsif params["step"] == "benefits"
-      throw(params)
       show_benefits
     end
   end
@@ -26,7 +25,7 @@ class CharacterWizardsController < ApplicationController
   end
 
   def show_benefits
-    kind_name = Kind.find(params["char_id"]).name
+    kind_name = CharacterWizard.find(params["char_id"]).kind_char
     @benefits = Benefit.where(kind_name: kind_name)
     render "benefits", :object => @benefits
   end
