@@ -6,12 +6,12 @@ class CharacterWizardsController < ApplicationController
       @kind_gender += Kind.where(gender: "Dowolna")
       render "kind_and_benefits", local: @kind_gender
     elsif params["step"] == "benefits"
-      kind_and_benefits
+      show_benefits
     end
   end
 
   def create
-    result = CharacterWizardService.call(wizard_params, params["char_id"], params["step"])
+    result = self.send(params["step"].to_sym)
     if result
       if params["step"] == "kind_and_benefits"
        redirect_to(character_wizard_path(char_id: params["char_id"], step: "benefits"))
@@ -24,18 +24,27 @@ class CharacterWizardsController < ApplicationController
     end
   end
 
-  def kind_and_benefits
-    kind_name = Kind.find(params["char_id"]).name
+  def show_benefits
+    kind_name = CharacterWizard.find_by_character_id(params["char_id"]).kind_char
     @benefits = Benefit.where(kind_name: kind_name)
     render "benefits", :object => @benefits
   end
 
-  def wizard_params
-    if params["step"] == "kind_and_benefits"
-      params.permit(:kind_char)
-    elsif params["step"] == "benefits"
-      params.permit(:benefit_first, :name_one, :benefit_second, :name_two, :benefit_third, :name_three)
-    end
+  private
+
+  def kind_and_benefits
+    @character_wizard = CharacterWizard.new(kind_char: params["kind_char"], character_id: params["char_id"])
+    @character_wizard.save
+    @character_wizard
   end
 
+  def benefits
+    choices = params.select { |key, value| value.to_s.match("1") && key.to_s.match("benefit_")}
+    choices_name = params.select { |key, value| key.to_s.match(choices.keys[0]) || key.to_s.match(choices.keys[1])}
+
+    @character_wizard = CharacterWizard.find_by_character_id(params["char_id"])
+    @character_wizard.update(first_benefit: choices_name.values[1], second_benefit: choices_name.values[3])
+    @character_wizard
+  end
+  
 end

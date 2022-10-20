@@ -8,21 +8,21 @@
         <%= form.check_box :benefit_first, class: "form-check-input", onchange: "handleChange();", id: "checkbox-one" %>
         <label class="form-check-label" for="flexCheckDefault">
           <%= @benefits[0].name %>
-          <%= form.hidden_field :name_one, value: @benefits[0].name %>
+          <%= form.hidden_field :name_benefit_first, value: @benefits[0].name %>
         </label>
       </div>
       <div class="form-check">
         <%= form.check_box :benefit_second, class: "form-check-input", onchange: "handleChange();", id: "checkbox-two"%>
         <label class="form-check-label" for="flexCheckDefault">
           <%= @benefits[1].name %>
-          <%= form.hidden_field :name_two, value: @benefits[1].name %>
+          <%= form.hidden_field :name_benefit_second, value: @benefits[1].name %>
         </label>
       </div>
       <div class="form-check">
         <%= form.check_box :benefit_third, class: "form-check-input", onchange: "handleChange();", id: "checkbox-three"%>
         <label class="form-check-label" for="flexCheckDefault">
           <%= @benefits[2].name %>
-          <%= form.hidden_field :name_three, value: @benefits[2].name %>
+          <%= form.hidden_field :name_benefit_third, value: @benefits[2].name %>
         </label>
       </div>
       <%= form.hidden_field :char_id, value: params["char_id"] %>
