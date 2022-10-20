@@ -11,7 +11,7 @@ class CharacterWizardsController < ApplicationController
   end
 
   def create
-    result = self.send(params["step"].to_sym)
+    result = public_send(params["step"])
     if result
       if params["step"] == "kind_and_benefits"
        redirect_to(character_wizard_path(char_id: params["char_id"], step: "benefits"))
@@ -29,8 +29,6 @@ class CharacterWizardsController < ApplicationController
     @benefits = Benefit.where(kind_name: kind_name)
     render "benefits", :object => @benefits
   end
-
-  private
 
   def kind_and_benefits
     @character_wizard = CharacterWizard.new(kind_char: params["kind_char"], character_id: params["char_id"])
