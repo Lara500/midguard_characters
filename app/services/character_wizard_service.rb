@@ -19,7 +19,6 @@ class CharacterWizardService < ApplicationService
 
   def benefits
     @character_wizard = CharacterWizard.find_by_character_id(@char_id)
-
     if @wizard_params["benefit_first"] == "1" && @wizard_params["benefit_second"] == "1"
       @character_wizard.update(first_benefit: @wizard_params["name_one"], second_benefit: @wizard_params["name_two"])
     elsif @wizard_params["benefit_second"] == "1" && @wizard_params["benefit_third"] == "1"
