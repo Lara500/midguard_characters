@@ -1,6 +1,8 @@
 class CharacterWizardsController < ApplicationController
+  before_action :validate_step, only: %i[show create]
 
   def show
+    validate_step
     if params["step"] == "kind_and_benefits"
       @kind_gender = Kind.where(gender: Character.find(params["char_id"]).gender)
       @kind_gender += Kind.where(gender: "Dowolna")
@@ -11,6 +13,7 @@ class CharacterWizardsController < ApplicationController
   end
 
   def create
+    validate_step
     result = public_send(params["step"])
     if result
       if params["step"] == "kind_and_benefits"
@@ -44,5 +47,10 @@ class CharacterWizardsController < ApplicationController
     @character_wizard.update(first_benefit: choices_name.values[1], second_benefit: choices_name.values[3])
     @character_wizard
   end
+
+  private
   
+  def validate_step
+    errors.add(params["step"], "Incorrect value") unless ['kind_and_benefits', 'benefits'].include?(params["step"])
+  end
 end
