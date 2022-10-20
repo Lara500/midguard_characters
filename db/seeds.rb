@@ -81,20 +81,20 @@ Benefit.find_or_create_by!(name: "Córka Frei", kind_name: "Walkiria")
 Benefit.find_or_create_by!(name: "Gwiazda Heimdala", kind_name: "Walkiria")
 Benefit.find_or_create_by!(name: "Skrzydła Asgardu", kind_name: "Walkiria")
 
-MainParameter.find_or_create_by!(physique: 7, dexterity: 4, perception: 4, intelligence: 3, control: 5, entropy: 4, kinds_id: Kind.find(1).id) #Berserker
-MainParameter.find_or_create_by!(physique: 6, dexterity: 4, perception: 5, intelligence: 3, control: 6, entropy: 3, kinds_id: Kind.find(2).id) #Einher
-MainParameter.find_or_create_by!(physique: 5, dexterity: 5, perception: 3, intelligence: 4, control: 4, entropy: 6, kinds_id: Kind.find(3).id) #Huskarl
-MainParameter.find_or_create_by!(physique: 4, dexterity: 4, perception: 6, intelligence: 4, control: 5, entropy: 4, kinds_id: Kind.find(4).id) #Jaeger
-MainParameter.find_or_create_by!(physique: 5, dexterity: 4, perception: 4, intelligence: 5, control: 5, entropy: 4, kinds_id: Kind.find(5).id) #Jarl
-MainParameter.find_or_create_by!(physique: 3, dexterity: 5, perception: 4, intelligence: 6, control: 3, entropy: 6, kinds_id: Kind.find(6).id) #Skald
-MainParameter.find_or_create_by!(physique: 3, dexterity: 4, perception: 4, intelligence: 6, control: 5, entropy: 5, kinds_id: Kind.find(7).id) #Techmistrz
-MainParameter.find_or_create_by!(physique: 4, dexterity: 5, perception: 4, intelligence: 7, control: 5, entropy: 2, kinds_id: Kind.find(8).id) #Thane
-MainParameter.find_or_create_by!(physique: 4, dexterity: 4, perception: 4, intelligence: 5, control: 6, entropy: 4, kinds_id: Kind.find(9).id) #Trickster
-MainParameter.find_or_create_by!(physique: 4, dexterity: 7, perception: 5, intelligence: 4, control: 4, entropy: 3, kinds_id: Kind.find(10).id) #Ulfhednar
-MainParameter.find_or_create_by!(physique: 3, dexterity: 4, perception: 4, intelligence: 6, control: 3, entropy: 7, kinds_id: Kind.find(11).id) #Wieszcz
-MainParameter.find_or_create_by!(physique: 5, dexterity: 5, perception: 5, intelligence: 4, control: 5, entropy: 3, kinds_id: Kind.find(12).id) #Wiking
-MainParameter.find_or_create_by!(physique: 3, dexterity: 3, perception: 3, intelligence: 6, control: 6, entropy: 6, kinds_id: Kind.find(13).id) #Wolwa
-MainParameter.find_or_create_by!(physique: 4, dexterity: 6, perception: 5, intelligence: 4, control: 4, entropy: 4, kinds_id: Kind.find(14).id) #Walkiria
+MainParameter.find_or_create_by!(physique: 7, dexterity: 4, perception: 4, intelligence: 3, control: 5, entropy: 4, kinds_id: Kind.find_by(name: "Berserker").id) #Berserker
+MainParameter.find_or_create_by!(physique: 6, dexterity: 4, perception: 5, intelligence: 3, control: 6, entropy: 3, kinds_id: Kind.find_by(name: "Einher").id) #Einher
+MainParameter.find_or_create_by!(physique: 5, dexterity: 5, perception: 3, intelligence: 4, control: 4, entropy: 6, kinds_id: Kind.find_by(name: "Huskarl").id) #Huskarl
+MainParameter.find_or_create_by!(physique: 4, dexterity: 4, perception: 6, intelligence: 4, control: 5, entropy: 4, kinds_id: Kind.find_by(name: "Jaeger").id) #Jaeger
+MainParameter.find_or_create_by!(physique: 5, dexterity: 4, perception: 4, intelligence: 5, control: 5, entropy: 4, kinds_id: Kind.find_by(name: "Jarl").id) #Jarl
+MainParameter.find_or_create_by!(physique: 3, dexterity: 5, perception: 4, intelligence: 6, control: 3, entropy: 6, kinds_id: Kind.find_by(name: "Skald").id) #Skald
+MainParameter.find_or_create_by!(physique: 3, dexterity: 4, perception: 4, intelligence: 6, control: 5, entropy: 5, kinds_id: Kind.find_by(name: "Techmistrz").id) #Techmistrz
+MainParameter.find_or_create_by!(physique: 4, dexterity: 5, perception: 4, intelligence: 7, control: 5, entropy: 2, kinds_id: Kind.find_by(name: "Thane").id) #Thane
+MainParameter.find_or_create_by!(physique: 4, dexterity: 4, perception: 4, intelligence: 5, control: 6, entropy: 4, kinds_id: Kind.find_by(name: "Trickster").id) #Trickster
+MainParameter.find_or_create_by!(physique: 4, dexterity: 7, perception: 5, intelligence: 4, control: 4, entropy: 3, kinds_id: Kind.find_by(name: "Ulfhednar").id) #Ulfhednar
+MainParameter.find_or_create_by!(physique: 3, dexterity: 4, perception: 4, intelligence: 6, control: 3, entropy: 7, kinds_id: Kind.find_by(name: "Wieszcz").id) #Wieszcz
+MainParameter.find_or_create_by!(physique: 5, dexterity: 5, perception: 5, intelligence: 4, control: 5, entropy: 3, kinds_id: Kind.find_by(name: "Wiking").id) #Wiking
+MainParameter.find_or_create_by!(physique: 3, dexterity: 3, perception: 3, intelligence: 6, control: 6, entropy: 6, kinds_id: Kind.find_by(name: "Wolwa").id) #Wolwa
+MainParameter.find_or_create_by!(physique: 4, dexterity: 6, perception: 5, intelligence: 4, control: 4, entropy: 4, kinds_id: Kind.find_by(name: "Walkiria").id) #Walkiria
 
 Skill.find_or_create_by!(side_arm: 5, hand_to_hand_combat: 5, endurance: 5, short_weapon: 2, vehicle_service: 0, reflex: 2, long_weapon: 2, pilotage: 0, alert_senses: 2,
                           connections: 0, engineering: 0, knowledge: 0, hacking: 0, infiltration: 0, trick: 0, charisma: 0, hexeri: 0, willpower: 5, kinds_id: Kind.find_by(name: "Berserker").id) #Berserker
