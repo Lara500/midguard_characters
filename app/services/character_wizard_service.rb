@@ -11,7 +11,7 @@ class CharacterWizardService < ApplicationService
 
   private
 
-  def kind_and_benefits
+  def kind
     @character_wizard = CharacterWizard.new(kind_char: @wizard_params["kind_char"], character_id: @char_id)
     @character_wizard.save
     @character_wizard
