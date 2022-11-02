@@ -1,3 +1,2 @@
-class MainParameter < ApplicationRecord
-  belongs_to :kind, optional: true
+class MainParameter < Parameter
 end

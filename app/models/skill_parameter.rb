@@ -1,0 +1,2 @@
+class SkillParameter < Parameter
+end

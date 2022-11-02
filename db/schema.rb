@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_10_090229) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_31_123517) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,45 +47,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_10_090229) do
     t.string "gender", null: false
   end
 
-  create_table "main_parameters", force: :cascade do |t|
-    t.integer "physique"
-    t.integer "dexterity"
-    t.integer "perception"
-    t.integer "intelligence"
-    t.integer "control"
-    t.integer "entropy"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "kinds_id"
-    t.index ["kinds_id"], name: "index_main_parameters_on_kinds_id"
-  end
-
-  create_table "skills", force: :cascade do |t|
-    t.integer "side_arm"
-    t.integer "hand_to_hand_combat"
-    t.integer "endurance"
-    t.integer "short_weapon"
-    t.integer "vehicle_service"
-    t.integer "reflex"
-    t.integer "long_weapon"
-    t.integer "pilotage"
-    t.integer "alert_senses"
-    t.integer "connections"
-    t.integer "engineering"
-    t.integer "knowledge"
-    t.integer "hacking"
-    t.integer "infiltration"
-    t.integer "trick"
-    t.integer "charisma"
-    t.integer "hexeri"
-    t.integer "willpower"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "kinds_id"
-    t.index ["kinds_id"], name: "index_skills_on_kinds_id"
+  create_table "parameters", force: :cascade do |t|
+    t.string "name"
+    t.integer "value"
+    t.string "type"
+    t.bigint "entity_id"
+    t.string "entity_type"
+    t.index ["entity_id", "entity_type"], name: "index_parameters_on_entity_id_and_entity_type"
   end
 
   add_foreign_key "character_wizards", "characters"
-  add_foreign_key "main_parameters", "kinds", column: "kinds_id"
-  add_foreign_key "skills", "kinds", column: "kinds_id"
 end
