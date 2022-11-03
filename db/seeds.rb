@@ -36,7 +36,8 @@ end
 
 benefit = Benefit.find_or_create_by!(name: "Furiat", kind_name: Kind.find_by(name: "Berserker").name)
 benefit.skill_parameters.create(name: "willpower", value: 2)
-Benefit.find_or_create_by!(name: "Pogarda śmierci", kind_name: "Berserker")
+benefit = Benefit.find_or_create_by!(name: "Pogarda śmierci", kind_name: "Berserker")
+benefit.auxiliary_parameters.create(name: "concentration", value: 5)
 benefit = Benefit.find_or_create_by!(name: "Runiczne tatuaże", kind_name: "Berserker")
 benefit.main_parameters.create(name: "entropy", value: 1)
 benefit.skill_parameters.create(name: "endurance", value: 1)
@@ -53,7 +54,9 @@ end
 end
 
 Benefit.find_or_create_by!(name: "Cybernetyczne ciało", kind_name: "Einher")
+benefit.auxiliary_parameters.create(name: "neurostability", value: 0)
 Benefit.find_or_create_by!(name: "Niezniszczalny", kind_name: "Einher")
+benefit.auxiliary_parameters.create(name: "vitality", value: 10)
 Benefit.find_or_create_by!(name: "Z grubej rury", kind_name: "Einher")
 
 
@@ -187,6 +190,7 @@ benefit = Benefit.find_or_create_by!(name: "Nieczysta zagrywka", kind_name: "Tri
 benefit.skill_parameters.create(name: "side_arm", value: 1)
 benefit = Benefit.find_or_create_by!(name: "Oszust", kind_name: "Trickster")
 benefit.skill_parameters.create(name: "trick", value: 3)
+benefit.auxiliary_parameters.create(name: "neurostability", value: 10)
 
 
 kind = Kind.find_by(name: "Ulfhednar")
@@ -199,7 +203,8 @@ end
   kind.skill_parameters.create(name: param_name, value: value)
 end
 
-Benefit.find_or_create_by!(name: "Akrobata", kind_name: "Ulfhednar")
+benefit = Benefit.find_or_create_by!(name: "Akrobata", kind_name: "Ulfhednar")
+benefit.auxiliary_parameters.create(name: "athletic", value: 3)
 Benefit.find_or_create_by!(name: "Kameleon", kind_name: "Ulfhednar")
 benefit = Benefit.find_or_create_by!(name: "Zabójca", kind_name: "Ulfhednar")
 benefit.skill_parameters.create(name: "reflex", value: 3)
@@ -217,7 +222,8 @@ end
 
 benefit = Benefit.find_or_create_by!(name: "Badacz hekseri", kind_name: "Wieszcz")
 benefit.skill_parameters.create(name: "hexeri", value: 1)
-Benefit.find_or_create_by!(name: "Mistrz entropii", kind_name: "Wieszcz")
+benefit = Benefit.find_or_create_by!(name: "Mistrz entropii", kind_name: "Wieszcz")
+benefit.auxiliary_parameters.create(name: "force", value: 20)
 benefit = Benefit.find_or_create_by!(name: "Tajemne arkana", kind_name: "Wieszcz")
 benefit.skill_parameters.create(name: "hexeri", value: 1)
 
@@ -264,6 +270,7 @@ end
 end
 
 Benefit.find_or_create_by!(name: "Córka Frei", kind_name: "Walkiria")
+benefit.auxiliary_parameters.create(name: "presence", value: 5)
 benefit.skill_parameters.create(name: "charisma", value: 3)
 Benefit.find_or_create_by!(name: "Gwiazda Heimdala", kind_name: "Walkiria")
 Benefit.find_or_create_by!(name: "Skrzydła Asgardu", kind_name: "Walkiria")
