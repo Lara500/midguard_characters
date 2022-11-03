@@ -48,7 +48,7 @@ kind = Kind.find_by(name: "Einher")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 4, hand_to_hand_combat: 4, endurance: 4, short_weapon: 0, vehicle_service: 3, reflex: 0, long_weapon: 5, pilotage: 3, alert_senses: 0,
+{side_arm_or_hand_to_hand_combat: 4, endurance: 4, short_weapon: 0, vehicle_service: 3, reflex: 0, long_weapon: 5, pilotage: 3, alert_senses: 0,
  connections: 0, engineering: 3, knowledge: 0, hacking: 3, infiltration: 0, trick: 0, charisma: 0, hexeri: 0, willpower: 3}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
@@ -65,7 +65,7 @@ kind = Kind.find_by(name: "Huskarl")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 4, hand_to_hand_combat: 4, endurance: 3, short_weapon: 4, vehicle_service: 0, reflex: 3, long_weapon: 0, pilotage: 0, alert_senses: 0,
+{side_arm_or_hand_to_hand_combat: 4, endurance: 3, short_weapon: 4, vehicle_service: 0, reflex: 3, long_weapon: 0, pilotage: 0, alert_senses: 0,
  connections: 3, engineering: 0, knowledge: 0, hacking: 0, infiltration: 0, trick: 0, charisma: 4, hexeri: 5, willpower: 2}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
@@ -80,7 +80,7 @@ kind = Kind.find_by(name: "Jaeger")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 3, hand_to_hand_combat: 0, endurance: 0, short_weapon: 3, vehicle_service: 3, reflex: 2, long_weapon: 5, pilotage: 3, alert_senses: 5,
+{side_arm_or_short_weapon: 3, hand_to_hand_combat: 0, endurance: 0, vehicle_service_or_pilotage: 3, reflex: 2, long_weapon: 5, alert_senses: 5,
  connections: 3, engineering: 0, knowledge: 3, hacking: 0, infiltration: 4, trick: 0, charisma: 0, hexeri: 0, willpower: 0}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
@@ -113,7 +113,7 @@ kind = Kind.find_by(name: "Skald")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 3, hand_to_hand_combat: 0, endurance: 0, short_weapon: 3, vehicle_service: 0, reflex: 2, long_weapon: 0, pilotage: 0, alert_senses: 2,
+{side_arm_or_short_weapon: 3, hand_to_hand_combat: 0, endurance: 0, vehicle_service: 0, reflex: 2, long_weapon: 0, pilotage: 0, alert_senses: 2,
  connections: 3, engineering: 0, knowledge: 5, hacking: 0, infiltration: 0, trick: 3, charisma: 6, hexeri: 4, willpower: 0}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
@@ -128,7 +128,7 @@ kind = Kind.find_by(name: "Techmistrz")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 3, hand_to_hand_combat: 0, endurance: 0, short_weapon: 3, vehicle_service: 3, reflex: 0, long_weapon: 3, pilotage: 3, alert_senses: 0,
+{side_arm_or_short_weapon_or_long_weapon: 3, hand_to_hand_combat: 0, endurance: 0, vehicle_service: 3, reflex: 0, pilotage: 3, alert_senses: 0,
  connections: 0, engineering: 5, knowledge: 3, hacking: 5, infiltration: 0, trick: 0, charisma: 0, hexeri: 3, willpower: 3}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
@@ -179,7 +179,7 @@ kind = Kind.find_by(name: "Trickster")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 4, hand_to_hand_combat: 0, endurance: 0, short_weapon: 4, vehicle_service: 0, reflex: 0, long_weapon: 0, pilotage: 0, alert_senses: 2,
+{side_arm_or_short_weapon: 4, hand_to_hand_combat: 0, endurance: 0, vehicle_service: 0, reflex: 0, long_weapon: 0, pilotage: 0, alert_senses: 2,
  connections: 5, engineering: 2, knowledge: 0, hacking: 3, infiltration: 3, trick: 5, charisma: 4, hexeri: 0, willpower: 0}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
@@ -198,7 +198,7 @@ kind = Kind.find_by(name: "Ulfhednar")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 4, hand_to_hand_combat: 0, endurance: 0, short_weapon: 4, vehicle_service: 0, reflex: 4, long_weapon: 4, pilotage: 0, alert_senses: 3,
+{side_arm: 4, hand_to_hand_combat: 0, endurance: 0, short_weapon_or_long_weapon: 4, vehicle_service: 0, reflex: 4, pilotage: 0, alert_senses: 3,
  connections: 3, engineering: 0, knowledge: 0, hacking: 0, infiltration: 4, trick: 4, charisma: 2, hexeri: 0, willpower: 0}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
@@ -215,7 +215,7 @@ kind = Kind.find_by(name: "Wieszcz")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 3, hand_to_hand_combat: 0, endurance: 0, short_weapon: 3, vehicle_service: 0, reflex: 0, long_weapon: 0, pilotage: 0, alert_senses: 0,
+{side_arm_or_short_weapon: 3, hand_to_hand_combat: 0, endurance: 0, vehicle_service: 0, reflex: 0, long_weapon: 0, pilotage: 0, alert_senses: 0,
  connections: 2, engineering: 0, knowledge: 5, hacking: 3, infiltration: 0, trick: 2, charisma: 5, hexeri: 5, willpower: 3}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
@@ -232,7 +232,7 @@ kind = Kind.find_by(name: "Wiking")
 {physique: 5, dexterity: 5, perception: 5, intelligence: 4, control: 5, entropy: 3}.each do |param_name, value|
   kind.main_parameters.create(name: param_name, value: value)
 end
-{side_arm: 4, hand_to_hand_combat: 4, endurance: 4, short_weapon: 4, vehicle_service: 3, reflex: 3, long_weapon: 4, pilotage: 3, alert_senses: 3,
+{side_arm_or_hand_to_hand_combat: 4, endurance: 4, short_weapon: 4, vehicle_service: 3, reflex: 3, long_weapon: 4, pilotage: 3, alert_senses: 3,
  connections: 0, engineering: 0, knowledge: 0, hacking: 0, infiltration: 0, trick: 0, charisma: 0, hexeri: 0, willpower: 0}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
@@ -248,8 +248,8 @@ kind = Kind.find_by(name: "Wolwa")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 0, hand_to_hand_combat: 0, endurance: 0, short_weapon: 5, vehicle_service: 2, reflex: 3, long_weapon: 0, pilotage: 0, alert_senses: 3,
- connections: 2, engineering: 0, knowledge: 5, hacking: 0, infiltration: 5, trick: 0, charisma: 3, hexeri: 0, willpower: 0}.each do |param_name, value|
+{side_arm: 3, hand_to_hand_combat: 0, endurance: 0, short_weapon: 0, vehicle_service: 0, reflex: 0, long_weapon: 0, pilotage: 0, alert_senses: 2,
+ connections: 0, engineering: 0, knowledge: 5, hacking: 4, infiltration: 2, trick: 0, charisma: 3, hexeri: 5, willpower: 4}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
 
@@ -264,8 +264,8 @@ kind = Kind.find_by(name: "Walkiria")
   kind.main_parameters.create(name: param_name, value: value)
 end
 
-{side_arm: 3, hand_to_hand_combat: 0, endurance: 0, short_weapon: 0, vehicle_service: 0, reflex: 0, long_weapon: 0, pilotage: 0, alert_senses: 2,
- connections: 0, engineering: 0, knowledge: 5, hacking: 4, infiltration: 2, trick: 0, charisma: 3, hexeri: 5, willpower: 4}.each do |param_name, value|
+{side_arm: 4, hand_to_hand_combat: 0, endurance: 0, short_weapon_or_long_weapon: 5, vehicle_service: 5, reflex: 2, pilotage: 5, alert_senses: 0,
+ connections: 0, engineering: 3, knowledge: 2, hacking: 0, infiltration: 0, trick: 0, charisma: 0, hexeri: 0, willpower: 2}.each do |param_name, value|
   kind.skill_parameters.create(name: param_name, value: value)
 end
 
